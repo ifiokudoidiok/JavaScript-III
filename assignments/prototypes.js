@@ -50,6 +50,7 @@ function Person(name, age) {
   this.name = name;
   this.age = age;
   this.stomach = [];
+  
   // console.log(this.stomachState);
   // this.info = 
 
@@ -65,9 +66,12 @@ Person.prototype.eat = function(food) {
   this.stomach.push(food);
   // console.log(this.stomach.push('yam'),"HERE");
 };
-Person.prototype.poop = function(food) {
+Person.prototype.poop = function() {
   this.stomach.length = 0;
   // console.log(this.stomach.push('yam'),"HERE");
+};
+Person.prototype.greet = function (){
+  return `Hello there, I am ${this.name} and I am ${this.age} years old`
 };
 
 let jay = new Person('Jay', 34);
@@ -115,7 +119,18 @@ let benz = new Car ('SUV', 'Mercedes Benz', 'G-63');
   - Babies of course inherit the ability to greet, which can be strange.
   - Babies should have the ability to play, which persons don't.
   - By playing, a string is returned with some text of your choosing.
+*/
+function Baby(name, age) {
+  Person.call(this, name, age);
+  
+}
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function (){
+  return "goo goo ga ga bla bla bla"
+};
+let babyA = new Baby ('Andy', 2);
 
+/*
   TASK 4
 
   Use your imagination and come up with constructors that allow to build objects
