@@ -19,15 +19,40 @@
 // Principle 1
 
 // code example for Window Binding
+var superVar = this;
+
+var superCar = "Ferrari"
 
 // Principle 2
 
 // code example for Implicit Binding
+let student = {
+    name:"Ifiok Udoidiok",
+    cohort: "WEBEU3",
+    intro: function () {
+        return `My name is ${this.name} in the ${this.cohort} cohort`;
+    },
+};
 
 // Principle 3
 
 // code example for New Binding
+function Car (data) {
+    this.make = data.make;
+    this.model = data.model;
+    this.color = data.color;
+};
+
+const newCar = new Car ('Honda', 'Accord', 'white');
 
 // Principle 4
 
 // code example for Explicit Binding
+function phone(company, model, os) {
+    return `You are using ${company} ${model} with the ${os} Operating System`
+}
+
+phone.call(this, 'Samsung','Galaxy S9', 'MashMellow');
+phone.apply(this, ['iPhone','8 plus', 'MashMellow']);
+
+const refurbishedPhone = phone.bind('China');
