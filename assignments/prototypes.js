@@ -73,6 +73,7 @@ Person.prototype.poop = function(food) {
 let jay = new Person('Jay', 34);
 jay.eat('yam');
 jay.eat('plantain');
+
 /*
   TASK 2
 
@@ -83,7 +84,31 @@ jay.eat('plantain');
   - A crashed car can't be driven any more. Attempts return a string "I crashed at x miles!", x being the miles in the odometer.
   - Give cars the ability to be repaired.
   - A repaired car can be driven again.
+*/
+function Car(model, name, make) {
+  this.model = model;
+  this.name = name;
+  this.make = make;
+  this.odometer = 0;
+  this.drive = true;
+};
+Car.prototype.crash = function(){
+  this.drive = false;
+  return "Car crashed!"
+};
+Car.prototype.cruise = function () {
+  if (this.drive === true){
+    return ((this.odometer += 20) +' miles travelled') ;
+  }
+  return ('car crashed but ' + this.odometer + ' miles travelled');
+}
+Car.prototype.fix = function(){
+  this.drive = true;
+  return "Car fixed!"
+};
 
+let benz = new Car ('SUV', 'Mercedes Benz', 'G-63');
+/*
   TASK 3
 
   - Build a Baby constructor that subclasses the Person built earlier.
