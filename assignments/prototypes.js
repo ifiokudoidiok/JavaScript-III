@@ -61,13 +61,18 @@ function Person(name, age) {
 // Person.prototype.poop = function(){
 //   this.stomach = [];
 // };
-Person.prototype.eatenEdibles = function() {
-  this.stomach.push();
-  console.log(this.stomach.push('yam'),"HERE");
+Person.prototype.eat = function(food) {
+  this.stomach.push(food);
+  // console.log(this.stomach.push('yam'),"HERE");
+};
+Person.prototype.poop = function(food) {
+  this.stomach.length = 0;
+  // console.log(this.stomach.push('yam'),"HERE");
 };
 
-let jay = new Person('Jay', 34, 'yam');
-
+let jay = new Person('Jay', 34);
+jay.eat('yam');
+jay.eat('plantain');
 /*
   TASK 2
 
